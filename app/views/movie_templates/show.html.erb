@@ -12,6 +12,22 @@
 
 <hr>
 
+<% if @current_user.present?%>
+  <% bookmarked_movie = Bookmark.where({ :user_id => @current_user.id, :movie_id => @the_movie.id }).at(0) %>
+  <% if bookmarked_movie.present? %>
+    <a href="/delete_bookmark/<%= bookmarked_movie.id %>">
+      Un-bookmark
+    </a>
+  <% else %>
+    <form action="/insert_bookmark" method="post">
+      <input type="hidden" value="<%= @the_movie.id %>" id="movie_id_box" name="query_movie_id" class="form-control">
+
+      <button class="btn btn-block btn-outline-secondary">
+        Bookmark this movie!
+      </button>
+    </form>
+  <% end %>
+<% end %>
 <dl>
   <dt>
     Title
@@ -166,7 +182,7 @@
     <label for="director_id_box">
       Director
     </label>
-    <%# <input id="director_id_box" name="query_director_id" value="<%= @the_movie.director_id %>"> %>
+    <!-- <input id="director_id_box" name="query_director_id" value="<%= @the_movie.director_id %>"> -->
     <select id="director_id_box" name="query_director_id">
         <% Director.all.each do |director| %>
           <option value="<%= director.id %>" <%= "selected" if director == @the_movie.director %>>
