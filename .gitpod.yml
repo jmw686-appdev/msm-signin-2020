@@ -1,11 +1,10 @@
-image: jelaniwoods/appdev2020-msm-queries
-
+image:	
+  file: .gitpod.Dockerfile
 tasks:
-  - init: bin/setup
+  - init: bundle install
 ports:
   - port: 3000
     onOpen: open-preview
-
 vscode:
   extensions:
     - shd101wyy.markdown-preview-enhanced@0.5.1:s3vD5qiY6/HbtRrgDlbMiQ==
