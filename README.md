@@ -1,4 +1,4 @@
-# Refactoring MSM Queries with Methods
+# MSM Signin Target
 
 [This Chapter contains detailed notes](https://chapters.firstdraft.com/chapters/843) for this project.
 
