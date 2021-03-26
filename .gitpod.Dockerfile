@@ -14,3 +14,5 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/so
 RUN sudo apt-get update && sudo apt-get install -y nodejs yarn postgresql-client
 RUN sudo apt-get update && sudo apt-get install -y yarn
 RUN sudo apt install -y postgresql postgresql-contrib libpq-dev psmisc lsof
+RUN echo "rvm use 2.6.6" >> ~/.bashrc
+RUN echo "rvm_silence_path_mismatch_check_flag=1" >> ~/.rvmrc
